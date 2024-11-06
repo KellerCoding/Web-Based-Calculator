@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Project/CalculatorLogic/CalculatorLogic.iml" filepath="$PROJECT_DIR$/Project/CalculatorLogic/CalculatorLogic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Web Based Calculator.iml" filepath="$PROJECT_DIR$/.idea/Web Based Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/WebServer.iml" filepath="$PROJECT_DIR$/Project/CalculatorLogic/WebServer/WebServer.iml" />
+    </modules>
+  </component>
+</project>
