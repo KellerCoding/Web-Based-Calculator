@@ -2,19 +2,17 @@
 
 # KSU SWE 3643 Software Testing and Quality Assurance Semester Project: Web-Based Calculator
 
-
+This repository contains the code for a full stack web calculator application with testing modules for the calculator logic and the end to end testing for the application. The project also contains the CalculationResult class, which is made to combat my "primitive obsession" and increase the testability of said code.
 
 ## Table of Contents
 
-
-
-- Team Members
+### Team Members
 
 Kahmin Keller - Sole Contributor
 
-- Architecture
+### Architecture
 
-
+Fullstack java application tested with JUnit and Playwright
 
 - Environment
 

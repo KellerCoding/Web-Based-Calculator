@@ -2,6 +2,7 @@
 
 public class CalculationResult {
     private double result = 0.0;
+    private double[] resultArray= new double[3];
     private boolean isSuccess=true;
     private String operation,resultString;
     private String error;
@@ -49,11 +50,23 @@ public class CalculationResult {
 
     //Returns Print statement describing condition of result object
     public void resultReport(){
-        System.out.print("result: "+result+"\nOperation: "+operation+"\nis success?: "+isSuccess+"\nError: "+error);
+        System.out.print("result: "+getResult()+"\nOperation: "+getOperation()+"\nis success?: "+getIsSuccess()+"\nError: "+getError());
+    }
+
+    public void stringResultReport(){
+        System.out.println("result: "+getResultString()+"\nOperation: "+getOperation()+"\nis success?: "+getIsSuccess()+"\nError: "+getError());
     }
 
     public void calculationFailure( String error){
         setIsSuccess(false);
         setError(error);
+    }
+
+    public double[] getResultArray() {
+        return resultArray;
+    }
+
+    public void setResultArray(double[] resultArray) {
+        this.resultArray = resultArray;
     }
 }
