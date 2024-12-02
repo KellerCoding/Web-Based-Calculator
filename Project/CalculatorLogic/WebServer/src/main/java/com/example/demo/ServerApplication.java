@@ -1,5 +1,7 @@
 package com.example.demo;
 
+
+
 import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +18,8 @@ public class ServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);
 	}
+
+
 
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {

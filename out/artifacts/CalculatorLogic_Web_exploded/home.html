@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Calculator</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+  h1 {text-align: left;}
+  h2 {text-align: left;}
+  p {text-align: left;}
+  div {text-align: left;}
+</style>
+<body>
+<h1>Calculator
+  <form action="/" method="GET" id="">
+    <button th:action="submit" id="goTo">Clear</button>
+  </form>
+</h1><br><br>
+
+<h3 th:text="${something}"/>
+
+</body>
+</html>
