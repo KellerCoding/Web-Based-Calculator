@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/src/main/java/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/src/test/e2e/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Project/CalculatorLogic/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Project/CalculatorLogic/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tests/src/main/java" charset="UTF-8" />

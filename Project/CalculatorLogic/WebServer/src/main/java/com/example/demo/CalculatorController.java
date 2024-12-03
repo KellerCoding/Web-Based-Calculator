@@ -21,13 +21,14 @@ import java.util.List;
 @Controller
 public class CalculatorController {
 
-    public void configureViewResolvers(ViewResolverRegistry registry) {
+    /*public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/WEB-INF/pages/", ".jsp");
-    }
-    public static void returnAnswer(CalculationResult result, Model model){
-        if (result.getIsSuccess()){
-            model.addAttribute("something", result.getError());
-        }else model.addAttribute("something", result.getResult());
+    }*/
+    public static void returnColor(CalculationResult result, Model model){
+        if (!result.getIsSuccess()){
+            model.addAttribute("color", "#B70F0A");
+            model.addAttribute("textcolor","#FFFFFF");
+        }else model.addAttribute("color", "#FFECD7");
     }
 
     @GetMapping("/result")
@@ -39,7 +40,8 @@ public class CalculatorController {
 
         try (BufferedReader reader = new BufferedReader(new StringReader(boxInput))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+
+            while ((line=reader.readLine()) != null) {
                 stringList.add(line);
             }
         } catch (IOException e) {
@@ -53,50 +55,112 @@ public class CalculatorController {
         }*/
         CalculationResult result = new CalculationResult();
         List<Double> list=new ArrayList<Double>();
+        try {
+        switch (input) {
 
-        switch (input){
-            case "compSTD":
 
-                for (int i=0;i<length;i++) {
-                    list.add(Double.parseDouble(stringList.get(i)));
-                }
-                result=CalculatorMethods.computeSampleStandardDeviation(list);
-                returnAnswer(result,model);
-                break;
-            case "compPop":
+                case "compSTD":
+                    for (int i = 0; i < length; i++) {
+                        list.add(Double.parseDouble(stringList.get(i)));
+                    }
+                    result = CalculatorMethods.computeSampleStandardDeviation(list);
+                    if (!result.getIsSuccess()) {
+                        model.addAttribute("something", result.getError());
 
-                for (int i=0;i<length;i++) {
-                    list.add(Double.parseDouble(stringList.get(i)));
-                }
-                result=CalculatorMethods.computePopulationStandardDeviation(list);
-                returnAnswer(result,model);
-                break;
-            case "compMean":
-                for (int i=0;i<length;i++) {
-                    list.add(Double.parseDouble(stringList.get(i)));
-                }
-                result = CalculatorMethods.computeMean(list);
-                returnAnswer(result,model);
-                break;
-            case "compZ":
-                result=CalculatorMethods.computeZScore(stringList.getFirst());
-                returnAnswer(result,model);
-                break;
-            case "compSingle":
-                String[] stringArray=new String[length];
-                for (int i = 0; i < length; i++) {
-                    stringArray[i]=stringList.get(i);
-                }
-                result=CalculatorMethods.computeSingleRegression(stringArray);
-                returnAnswer(result,model);
-                break;
-            case "compY":
-                result=CalculatorMethods.predictY(stringList.getFirst());
-                returnAnswer(result,model);
-                break;
-            default:
-                model.addAttribute("something", "Function Failure");
-        }
+                    } else {
+                        model.addAttribute("something", result.getResult());
+                        model.addAttribute("oper","Sample Standard Deviation");
+
+                    }
+                    returnColor(result,model);
+                    break;
+
+
+                case "compPop":
+                    for (int i = 0; i < length; i++) {
+                        list.add(Double.parseDouble(stringList.get(i)));
+                    }
+                    result = CalculatorMethods.computePopulationStandardDeviation(list);
+                    if (!result.getIsSuccess()) {
+                        model.addAttribute("something", result.getError());
+
+                    } else {
+                        model.addAttribute("something", result.getResult());
+                        model.addAttribute("oper","Population Standard Deviation");
+                    }
+                    returnColor(result,model);
+                    break;
+
+
+                case "compMean":
+                    for (int i = 0; i < length; i++) {
+                        list.add(Double.parseDouble(stringList.get(i)));
+                    }
+                    result = CalculatorMethods.computeMean(list);
+                    if (!result.getIsSuccess()) {
+                        model.addAttribute("something", result.getError());
+
+                    } else {
+                        model.addAttribute("something", result.getResult());
+                        model.addAttribute("oper","Mean Calculation");
+
+                    }
+                    returnColor(result,model);
+                    break;
+
+
+                case "compZ":
+                    result = CalculatorMethods.computeZScore(stringList.getFirst());
+                    if (!result.getIsSuccess()) {
+                        model.addAttribute("something", result.getError());
+
+                    } else {
+                        model.addAttribute("something", result.getResult());
+                        model.addAttribute("oper","Z-Score");
+
+                    }
+                    returnColor(result,model);
+                    break;
+
+
+                case "compSingle":
+                    String[] stringArray = new String[length];
+                    for (int i = 0; i < length; i++) {
+                        stringArray[i] = stringList.get(i);
+                    }
+
+                    result = CalculatorMethods.computeSingleRegression(stringArray);
+                    if (!result.getIsSuccess()) {
+                        model.addAttribute("something", result.getError());
+
+                    } else{
+                        model.addAttribute("something", result.getResultString());
+                        model.addAttribute("oper","Single Linear Regression Formula");
+
+                    }
+                    returnColor(result,model);
+                    break;
+
+
+                case "compY":
+                    result = CalculatorMethods.predictY(stringList.getFirst());
+                    if (!result.getIsSuccess()) {
+                        model.addAttribute("something", result.getError());
+
+                    } else {
+                        model.addAttribute("something", result.getResultString());
+                        model.addAttribute("oper","Single Linear Regression Prediction");
+
+                    }
+                    returnColor(result,model);
+                    break;
+
+            }
+            } catch (Exception e){
+            model.addAttribute("something", "Invalid Input - Clear and Try Again\n"+result.getError());
+            model.addAttribute("color", "#B70F0A");
+            model.addAttribute("textcolor","#FFFFFF");
+            }
 
 
         return "result";
@@ -105,37 +169,7 @@ public class CalculatorController {
     @RequestMapping("/index")
     public String index(Model model, @RequestParam() Boolean button){
 
-
-
         return "index";
 }
 
-
-/*
-    @GetMapping("/add")
-    public String input(@RequestParam(value="InputA", defaultValue = "0") String InputA, BindingResult bindingResult){
-
-        double inputANum=Double.parseDouble(InputA);
-
-        return ;
-    }
-*/
-
-   /* @GetMapping("/")
-    public String index() {
-        return "<h1>Greetings from Kahmin!</h1>";
-    }
-*/
- /*   @GetMapping("/")
-    public String inputForm(Model model) {
-        model.addAttribute("input", new Input());
-        return "Let me guess";
-    }
-
-    @PostMapping("/")
-    public String inputSubmit(@ModelAttribute Input input, Model model) {
-        model.addAttribute("input", input);
-        return "result";
-    }
-  */
 }

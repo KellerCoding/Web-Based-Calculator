@@ -249,6 +249,7 @@ class LogicTest {
     @Test
     void PredictY_ReceiveValidInput_ReturnAnswer(){
         String data="1.535,61.272186542107434, -39.061955918838656";
+        data="1.535,61.272186542107434, -39.061955918838656";
         CalculationResult result = CalculatorMethods.predictY(data);
 
         result.stringResultReport();

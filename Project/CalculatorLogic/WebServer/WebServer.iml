@@ -2,9 +2,9 @@
 <module version="4">
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$" dumb="true">
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java/org/example" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources/static" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
     </content>
   </component>
   <component name="FacetManager">
@@ -18,10 +18,11 @@
           <root url="file://$MODULE_DIR$/web2" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$MODULE_DIR$/target/generated-sources/annotations" />
           <root url="file://$MODULE_DIR$/src/main/java/org/example" />
+          <root url="file://$MODULE_DIR$/src/main/resources/static" />
+          <root url="file://$MODULE_DIR$/src/main/resources/templates" />
+          <root url="file://$MODULE_DIR$/src/main/java/com/example" />
+          <root url="file://$MODULE_DIR$/src/main/java/com/example/demo" />
         </sourceRoots>
       </configuration>
     </facet>

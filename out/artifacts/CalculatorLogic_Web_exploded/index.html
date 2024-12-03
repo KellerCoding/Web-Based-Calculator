@@ -11,13 +11,24 @@
     div {text-align: left;}
 </style>
 <body>
-<h1>Calculator
-    <form action="" method="GET" id="">
-        <button>Clear</button>
-    </form>
-</h1><br><br>
+<h1>Calculator<form action="" method="GET" id="">
+    <button>Clear</button>
+</form>
+</h1><br>
 
-<h3 th:text="${something}"/>
+
+<table style="width:100%" bgcolor="#FFECD7">
+    <tr>
+        <th color="#000000" valuetype="text">
+            Enter values below, then select an operation
+        </th>
+    </tr>
+    <tr>
+        <th >
+        </th>
+    </tr>
+</table>
+
 <form action="/result" method="GET" id="input" >
     <p>
         <label for="inputA">Values</label><br>
@@ -27,7 +38,7 @@
     <div th:type="String" th:id="method"  >
 
         <h2>Descriptive Statistics</h2>
-        <button name="method" type="submit" th:id="method" th:value="method" value="compSTD">Compute Standard Deviation  |  one value per line</button><br><br>
+        <button name="method" type="submit" th:id="method" th:value="method" value="compSTD">Compute Sample Standard Deviation  |  one value per line</button><br><br>
         <button name="method" type="submit" th:id="method" th:value="method" value="compPop">Compute Population Deviation  |  one value per line</button><br><br>
         <button name="method" type="submit" th:id="method" th:value="method" value="compMean">Compute Mean  |  one value per line</button><br><br>
         <button name="method" type="submit" th:id="comp" th:value="compZ" value="compZ">Compute Z Score  |  value, mean, stdDev on one line</button>

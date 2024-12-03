@@ -17,7 +17,17 @@
     </form>
 </h1><br><br>
 
-<h3 th:text="${something}"/>
+<table style="width:100%" th:bgcolor="${color}">
+    <tr>
+        <th th:text="${oper}" th:color="${textcolor}">
+        </th>
+    </tr>
+    <tr>
+        <th th:text="${something}" th:color="${textcolor}">
+        </th>
+    </tr>
+</table>
+
 <form action="/result" method="GET" id="returnHome">
     <div>
         <p>
