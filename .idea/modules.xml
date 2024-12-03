@@ -4,8 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Project/CalculatorLogic/CalculatorLogic.iml" filepath="$PROJECT_DIR$/Project/CalculatorLogic/CalculatorLogic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Web Based Calculator.iml" filepath="$PROJECT_DIR$/.idea/Web Based Calculator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/WebServer.iml" filepath="$PROJECT_DIR$/Project/CalculatorLogic/WebServer/WebServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/spring-boot-complete.iml" filepath="$PROJECT_DIR$/Project/CalculatorLogic/WebServer/spring-boot-complete.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/src/test/e2e/e2e.iml" filepath="$PROJECT_DIR$/Project/CalculatorLogic/WebServer/src/test/e2e/e2e.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project/CalculatorLogic/WebServer/WebServer.iml" filepath="$PROJECT_DIR$/Project/CalculatorLogic/WebServer/WebServer.iml" />
     </modules>
   </component>
 </project>

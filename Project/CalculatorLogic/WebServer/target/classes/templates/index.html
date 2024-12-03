@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+    h1 {text-align: left;}
+    h2 {text-align: left;}
+    p {text-align: left;}
+    div {text-align: left;}
+</style>
+<body>
+<h1>Calculator
+    <form action="/" method="GET" id="">
+        <button>Clear</button>
+    </form>
+</h1><br><br>
+
+<h3 th:text="${something}"/>
+<form action="/result" method="GET" id="input">
+    <div>
+        <p>
+            <label for="inputA">Values</label>
+            <textarea name="inputA" id="inputA" rows="10" cols="100"></textarea><br><br>
+        </p>
+
+        <div th:type="String" th:id="method" >
+
+            <h2>Descriptive Statistics</h2>
+            <input type="text" name="compSTD" th:for="method" th:value="compSTD">Compute Standard Deviation  |  one value per line</input><br><br>
+            <button>Compute Population Deviation  |  one value per line</button><br><br>
+            <button>Compute Mean  |  one value per line</button><br><br>
+            <button>Compute Z Score  |  value, mean, stdDev on one line</button>
+            <h2>Single Linear Regression</h2>
+            <button>Compute Single Linear Regression Formula | one x,y pair per line</button><br><br>
+            <button>Predict Y from Linear Regression Formula | x,m,b on one line</button><br><br>
+        </div>
+    </div>
+</form>
+</body>
+</html>
