@@ -23,7 +23,7 @@
         </th>
     </tr>
     <tr>
-        <th th:text="${something}" th:color="${textcolor}">
+        <th th:style="|${textcolor == 'black' ? 'color: white;' : 'color: black;'}|" th:text="${something}" >
         </th>
     </tr>
 </table>
