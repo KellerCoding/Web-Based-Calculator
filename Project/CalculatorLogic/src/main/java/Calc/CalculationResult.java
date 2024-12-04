@@ -1,4 +1,5 @@
 //Java
+package Calc;
 
 public class CalculationResult {
     private double result = 0.0;
