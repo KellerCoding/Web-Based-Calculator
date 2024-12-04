@@ -7,17 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="e2e" />
-        <module name="spring-boot-complete" />
-        <module name="WebServer" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="tests" target="22" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebServer" options="-parameters" />
+      <module name="e2e" options="-parameters" />
+      <module name="spring-boot-complete" options="" />
     </option>
   </component>
 </project>

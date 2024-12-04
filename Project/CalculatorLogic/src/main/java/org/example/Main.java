@@ -1,4 +1,3 @@
-package Calc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.List;
 This code contains the mathematical computations for the sake of the web-based calculator.
 
  */
-public class CalculatorMethods {
+public class Main {
     static String emptyList = "valuesList parameter cannot be null or empty";
     static String insufficientValues = "numValues is too low (sample size must be >= 2, population size must be >= 1)";
     static String nonNumericalValues = "No input can contain any nonnumerical values";
@@ -20,7 +19,7 @@ public class CalculatorMethods {
 
 
 
-    public static CalculationResult computeSquareOfDifferences(List<Double> list, double mean, CalculationResult result) {
+    static CalculationResult computeSquareOfDifferences(List<Double> list, double mean, CalculationResult result) {
         double squareAccumulator=0.0;
         if (list.isEmpty()) result.calculationFailure(emptyList);
 

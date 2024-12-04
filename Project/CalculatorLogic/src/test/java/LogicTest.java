@@ -2,9 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import Calc.*;
-import static Calc.CalculatorMethods.*;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,9 +15,9 @@ class LogicTest {
     void ComputeSquareOfDifferences_ReceiveNullList_ThrowException() {
         List<Double> list = new ArrayList<Double>();
         CalculationResult result = new CalculationResult();
-        CalculatorMethods.computeSquareOfDifferences(list,5,result);
+        Main.computeSquareOfDifferences(list,5,result);
         assertAll(
-                () -> assertFalse(result.getIsSuccess(), result.getError()),
+                () -> assertFalse(result.getIsSuccess(),Main.emptyList),
                 () -> assertEquals(0.0,result.getResult())
         );
     }
@@ -44,7 +42,7 @@ class LogicTest {
         data[13]="1.8,72.19";
         data[14]="1.83,74.46";
 
-        result= CalculatorMethods.computeSingleRegression(data);
+        result=Main.computeSingleRegression(data);
         result.stringResultReport();
         assertTrue(result.getResultString().contains("y=61.272186542107434x+-39.061955918841036"));
 
@@ -73,7 +71,7 @@ class LogicTest {
 
          */
 
-        result= CalculatorMethods.computeSingleRegression(data);
+        result=Main.computeSingleRegression(data);
         result.stringResultReport();
         assertTrue(result.getIsSuccess());
 
@@ -84,7 +82,7 @@ class LogicTest {
         String[] data = new String[15];
 
 
-        result= CalculatorMethods.computeSingleRegression(data);
+        result=Main.computeSingleRegression(data);
         result.stringResultReport();
         assertFalse(result.getIsSuccess());
 
@@ -96,7 +94,7 @@ class LogicTest {
         String[] data = new String[0];
 
 
-        result= CalculatorMethods.computeSingleRegression(data);
+        result=Main.computeSingleRegression(data);
         result.stringResultReport();
         assertFalse(result.getIsSuccess());
 
@@ -109,7 +107,7 @@ class LogicTest {
         list.add(6.425);
         list.add(2.5);
         double mean=2.25;
-        CalculatorMethods.computeSquareOfDifferences(list,mean,result);
+        Main.computeSquareOfDifferences(list,mean,result);
 
         assertEquals(17.493125, result.getResult());
     }
@@ -125,7 +123,7 @@ class LogicTest {
         nums.add((double)5);
         nums.add((double)7);
 
-        result= CalculatorMethods.computeSampleStandardDeviation(nums);
+        result=Main.computeSampleStandardDeviation(nums);
         assertEquals(1.5811388300841898, result.getResult());
     }
 
@@ -140,7 +138,7 @@ class LogicTest {
         nums.add((double)0.0);
         nums.add((double)0.0);
 
-        result= CalculatorMethods.computeSampleStandardDeviation(nums);
+        result=Main.computeSampleStandardDeviation(nums);
         result.resultReport();
         assertTrue(result.getIsSuccess());
     }
@@ -149,7 +147,7 @@ class LogicTest {
     void ComputeSampleStandardDeviation_ReceiveNullList_ReturnNull() {
         List<Double> list = new ArrayList<Double>();
         CalculationResult result;
-        result= CalculatorMethods.computeSampleStandardDeviation(list);
+        result=Main.computeSampleStandardDeviation(list);
         result.resultReport();
         assertFalse(result.getIsSuccess());
     }
@@ -159,7 +157,7 @@ class LogicTest {
         List<Double> list = new ArrayList<Double>();
         list.add(5.5);
         CalculationResult result;
-        result= CalculatorMethods.computeSampleStandardDeviation(list);
+        result=Main.computeSampleStandardDeviation(list);
         result.resultReport();
         assertFalse(result.getIsSuccess());
     }
@@ -175,8 +173,8 @@ class LogicTest {
         nums.add((double)8);
         nums.add((double)5);
         nums.add((double)7);
-//Test passes at equivalency to 5 decimal places.
-        result= CalculatorMethods.computePopulationStandardDeviation(nums);
+//Test is still failing to Professor's requirements doc. Check back with Professor at earliest convenience.
+        result=Main.computePopulationStandardDeviation(nums);
         result.resultReport();
         assertEquals(1.4142135623730951, result.getResult());
 
@@ -194,7 +192,7 @@ class LogicTest {
         nums.add((double)0.0);
         nums.add((double)0.0);
 
-        result= CalculatorMethods.computePopulationStandardDeviation(nums);
+        result=Main.computePopulationStandardDeviation(nums);
         result.resultReport();
         assertTrue(result.getIsSuccess());
     }
@@ -203,7 +201,7 @@ class LogicTest {
     void ComputePopulationStandardDeviation_ReceiveNullList_ReturnNull() {
         List<Double> list = new ArrayList<Double>();
         CalculationResult result;
-        result= CalculatorMethods.computePopulationStandardDeviation(list);
+        result=Main.computePopulationStandardDeviation(list);
         result.resultReport();
         assertFalse(result.getIsSuccess());
     }
@@ -219,7 +217,7 @@ class LogicTest {
         nums.add((double)5);
         nums.add((double)7);
 //In the Requirements document, the asserted correct mean is the sum of all the values.
-        result= CalculatorMethods.computeMean(nums);
+        result= Main.computeMean(nums);
         result.resultReport();
         assertEquals(7.0,result.getResult());
     }
@@ -229,7 +227,7 @@ class LogicTest {
         CalculationResult result;
         String input="11.5,7,1.5811388300841898";
 
-        result= CalculatorMethods.computeZScore(input);
+        result=Main.computeZScore(input);
         result.resultReport();
         assertEquals(2.846049894151541,result.getResult());
 
@@ -240,7 +238,7 @@ class LogicTest {
         CalculationResult result;
         String input="11.5,7,1.5811388300841898,2.2";
 
-        result= CalculatorMethods.computeZScore(input);
+        result=Main.computeZScore(input);
         result.resultReport();
         assertFalse(result.getIsSuccess());
 
@@ -249,8 +247,7 @@ class LogicTest {
     @Test
     void PredictY_ReceiveValidInput_ReturnAnswer(){
         String data="1.535,61.272186542107434, -39.061955918838656";
-        data="1.535,61.272186542107434, -39.061955918838656";
-        CalculationResult result = CalculatorMethods.predictY(data);
+        CalculationResult result = Main.predictY(data);
 
         result.stringResultReport();
         assertTrue(result.getResultString().contains("y=54.990850423296244"));

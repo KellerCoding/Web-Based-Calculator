@@ -1,23 +1,12 @@
 package com.example.demo;
 
-import Calc.*;
-
-
-
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-@SpringBootApplication
 @Controller
 public class CalculatorController {
 
